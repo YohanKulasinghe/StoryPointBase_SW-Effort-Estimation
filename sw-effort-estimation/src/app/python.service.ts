@@ -10,7 +10,7 @@ export class PythonService {
 
 
   getEstimation(body:any){
-    return this._http.post('http://127.0.0.1:5000/getValue',body,{
+    return this._http.post('http://127.0.0.1:5000/setTotalStoryPoint',body,{
       observe:'body',
       headers: new HttpHeaders().append('Content-Type','application/json')
     });
