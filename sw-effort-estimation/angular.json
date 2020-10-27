@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "sw-effort-estimation"
+    }
+  },
+  "defaultProject": "sw-effort-estimation",
+  "cli": {
+    "analytics": "53ca4aa0-6523-4d03-9a1d-6801310ed81c"
+  }
 }
