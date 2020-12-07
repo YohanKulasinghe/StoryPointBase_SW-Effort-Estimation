@@ -16,11 +16,18 @@ def index():
     return jsonify('Software effort Estimation Tool - Flask backEnd is working properly')
 
 @app.route('/setTotalStoryPoint', methods=['POST'])
-def setTotalStoryPoint():
+def set_storypoint():
     req = json.loads(request.data.decode())
     print(req)
 
     return jsonify('sucess')
+
+@app.route('/setCostDrivers', methods=['POST'])
+def set_costDrivers():
+    req = json.loads(request.data.decode())
+    print(req)
+
+    return jsonify('sucess cost')
 
 
 if __name__ == '__main__':

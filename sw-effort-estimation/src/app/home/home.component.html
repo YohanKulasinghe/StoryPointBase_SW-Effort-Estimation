@@ -1,15 +1,160 @@
 <div class="jumbotron">
     <div class="container">
-      <h1 class="display-3">Welcome !</h1>
-      <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+        <h1 class="display-3">Welcome !</h1>
+        <p>This is a template for a simple marketing or informational website. It includes a large callout called a
+            jumbotron and three supporting pieces of content. Use it as a starting point to create something more
+            unique.</p>
     </div>
 </div>
 
-<div class="container">
-    <form  [formGroup]="storyPointForm" style="display: flex;">
-        <label for="fname">Total Story Points: </label><br>
-        <input formControlName = "storyPoint" style="margin-left: 10px" type="text" id="fname" name="fname">
-        <input style="margin-left: 10px" type="submit" (click)="onSubmit()">
-    </form>
-    
+<div>
+    <div class="row">
+
+        <div class="col-md-4">
+            <form [formGroup]="storyPointForm">
+                <div class="row" style="display: flex; margin-left: 10px;">
+                    <div class="col-md-5">
+                        <label for="fname">Total Story Points: </label>
+                    </div>
+                    <div class="col-md-7">
+                        <input formControlName="storyPoint" style="width: 100%;" type="text" id="fname" name="fname">
+                    </div>
+                </div>
+                <div class="row" style="justify-content: center; margin-top: 10px;">
+                    <input type="submit" (click)="onStoryPointClick()">
+                </div>
+            </form>
+        </div>
+
+        <div class="col-md-4">
+            <form [formGroup]="costDriversForm">
+
+                <div class="row" style="display: flex; margin-left: 10px;">
+                    <div class="col-md-5">
+                        <label for="fname">Team Salary:</label>
+                    </div>
+                    <div class="col-md-7">
+                        <input formControlName="teamSalary" style="width: 100%;" type="text" id="fname" name="fname">
+                    </div>
+                </div>
+
+                <div class="row" style="display: flex; margin-left: 10px;">
+                    <div class="col-md-5">
+                        <label for="fname">Other Staff Salary: </label>
+                    </div>
+                    <div class="col-md-7">
+                        <input formControlName="nonTechSalary" style="width: 100%;" type="text" id="fname" name="fname">
+                    </div>
+                </div>
+
+                <div class="row" style="display: flex; margin-left: 10px;">
+                    <div class="col-md-5">
+                        <label for="fname">Equipment: </label>
+                    </div>
+                    <div class="col-md-7">
+                        <input formControlName="Equipment" style="width: 100%;" type="text" id="fname" name="fname">
+                    </div>
+                </div>
+
+                <div class="row" style="display: flex; margin-left: 10px;">
+                    <div class="col-md-5">
+                        <label for="fname">Depreciation: </label>
+                    </div>
+                    <div class="col-md-7">
+                        <input formControlName="depreciation" style="width: 100%;" type="text" id="fname" name="fname">
+                    </div>
+                </div>
+
+                <div class="row" style="display: flex; margin-left: 10px;">
+                    <div class="col-md-5">
+                        <label for="fname">Rent: </label>
+                    </div>
+                    <div class="col-md-7">
+                        <input formControlName="rent" style="width: 100%;" type="text" id="fname" name="fname">
+                    </div>
+                </div>
+
+                <div class="row" style="display: flex; margin-left: 10px;">
+                    <div class="col-md-5">
+                        <label for="fname">Travelling: </label>
+                    </div>
+                    <div class="col-md-7">
+                        <input formControlName="travelling" style="width: 100%;" type="text" id="fname" name="fname">
+                    </div>
+                </div>
+
+                <div class="row" style="display: flex; margin-left: 10px;">
+                    <div class="col-md-5">
+                        <label for="fname">Utility Bills: </label>
+                    </div>
+                    <div class="col-md-7">
+                        <input formControlName="utilityBills" style="width: 100%;" type="text" id="fname" name="fname">
+                    </div>
+                </div>
+
+                <div class="row" style="display: flex; margin-left: 10px;">
+                    <div class="col-md-5">
+                        <label for="fname">License: </label>
+                    </div>
+                    <div class="col-md-7">
+                        <input formControlName="coppyright" style="width: 100%;" type="text" id="fname" name="fname">
+                    </div>
+                </div>
+
+                <div class="row" style="display: flex; margin-left: 10px;">
+                    <div class="col-md-5">
+                        <label for="fname">Software Purchase: </label>
+                    </div>
+                    <div class="col-md-7">
+                        <input formControlName="softwarePurchase" style="width: 100%;" type="text" id="fname" name="fname">
+                    </div>
+                </div>
+
+                <div class="row" style="display: flex; margin-left: 10px;">
+                    <div class="col-md-5">
+                        <label for="fname">Maintenance: </label>
+                    </div>
+                    <div class="col-md-7">
+                        <input formControlName="repairAndMaintenance" style="width: 100%;" type="text" id="fname" name="fname">
+                    </div>
+                </div>
+
+                <div class="row" style="display: flex; margin-left: 10px;">
+                    <div class="col-md-5">
+                        <label for="fname">Sanitary: </label>
+                    </div>
+                    <div class="col-md-7">
+                        <input formControlName="Sanitary" style="width: 100%;" type="text" id="fname" name="fname">
+                    </div>
+                </div>
+
+                <div class="row" style="display: flex; margin-left: 10px;">
+                    <div class="col-md-5">
+                        <label for="fname">Marketing: </label>
+                    </div>
+                    <div class="col-md-7">
+                        <input formControlName="Marketing" style="width: 100%;" type="text" id="fname" name="fname">
+                    </div>
+                </div>
+
+                <div class="row" style="display: flex; margin-left: 10px;">
+                    <div class="col-md-5">
+                        <label for="fname">Other: </label>
+                    </div>
+                    <div class="col-md-7">
+                        <input formControlName="Other" style="width: 100%;" type="text" id="fname" name="fname">
+                    </div>
+                </div>
+
+
+                <div class="row" style="justify-content: center; margin-top: 10px;">
+                    <input type="submit" (click)="onCostClick()">
+                </div>
+            </form>
+        </div>
+
+        <div class="col-md-4">
+
+        </div>
+    </div>
 </div>
