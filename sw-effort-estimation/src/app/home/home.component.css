@@ -1,3 +1,24 @@
 .jumbotron{
     padding: 4rem 2rem 1rem !important;
 }
+
+.showEstimatedTimeBlock{
+    background-color : lightgray;
+    justify-content: center; 
+    margin: 20px 0px 20px 20px;
+    padding: 20px;
+}
+
+.showFinalEstimatedBlock{
+    background-color : lightgray;
+    justify-content: center; 
+    margin: 20px;
+    padding: 20px;
+}
+
+.finalInput{
+    border: 1px solid;
+    border-radius: 3px;
+    height: 30px;
+    padding-left: 4px;
+}

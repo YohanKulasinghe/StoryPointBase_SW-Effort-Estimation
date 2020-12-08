@@ -22,4 +22,11 @@ export class PythonService {
       headers: new HttpHeaders().append('Content-Type','application/json')
     });
   }
+
+  getPrediction(time,costFactor,teamSalary){
+    return this._http.post('http://127.0.0.1:5000/getPrediction',{"estimatedTime": time,"costDriver":costFactor,"teamSalary": teamSalary},{
+      observe:'body',
+      headers: new HttpHeaders().append('Content-Type','application/json')
+    });
+  }
 }

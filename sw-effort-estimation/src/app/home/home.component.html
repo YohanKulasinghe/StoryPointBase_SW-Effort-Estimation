@@ -21,9 +21,14 @@
                     </div>
                 </div>
                 <div class="row" style="justify-content: center; margin-top: 10px;">
-                    <input type="submit" (click)="onStoryPointClick()">
+                    <input type="submit" (click)="onStoryPointClick()" value="Get Estimated Time">
                 </div>
             </form>
+
+            <div class = "row showEstimatedTimeBlock" *ngIf="showEstimatedTime">
+               <span>Estimated Time in Days : </span>
+               <strong>{{estimatedTime}}</strong>
+            </div>
         </div>
 
         <div class="col-md-4">
@@ -80,6 +85,15 @@
                     </div>
                     <div class="col-md-7">
                         <input formControlName="travelling" style="width: 100%;" type="text" id="fname" name="fname">
+                    </div>
+                </div>
+
+                <div class="row" style="display: flex; margin-left: 10px;">
+                    <div class="col-md-5">
+                        <label for="fname">Durniture: </label>
+                    </div>
+                    <div class="col-md-7">
+                        <input formControlName="furniture" style="width: 100%;" type="text" id="fname" name="fname">
                     </div>
                 </div>
 
@@ -146,14 +160,54 @@
                     </div>
                 </div>
 
-
                 <div class="row" style="justify-content: center; margin-top: 10px;">
-                    <input type="submit" (click)="onCostClick()">
+                    <input type="submit" (click)="onCostClick()" value="Get Cost Factor">
                 </div>
             </form>
+
+            <div class = "row showEstimatedTimeBlock" *ngIf="showEstimatedCostFactor">
+                <span>Cost Driving Factor : </span>
+                <strong>{{estimatedCostFactor}}</strong>
+             </div>
+
         </div>
 
         <div class="col-md-4">
+
+            <div class="row" style="display: flex; margin-left: 10px;">
+                <div class="col-md-6" style="display: flex;">
+                    <div class="col-md-5">
+                        <label for="fname">Time : </label>
+                    </div>
+                    <div class="col-md-7">
+                        <label class="finalInput" style="width: 100%;" type="text" id="fname">{{estimatedTime}}</label>
+                    </div>
+                </div>
+                <div class="col-md-6" style="display: flex;">
+                    <div class="col-md-5">
+                        <label for="fname">Cost Driver: </label>
+                    </div>
+                    <div class="col-md-7">
+                        <label class="finalInput" style="width: 100%;" type="text" id="fname">{{estimatedCostFactor}}</label>
+                    </div>
+                </div>
+               
+            </div>
+
+            
+            <div class="row" style="justify-content: center; margin-top: 10px;">
+                <input type="submit" (click)="onPredictionClick()" value="Get Prediction">
+            </div>
+
+            <div class = "row showFinalEstimatedBlock" *ngIf="showGetPrediction">
+                <span>Expected Total Time In Days : </span>
+                <strong>{{estimatedTime}}</strong>
+             </div>
+
+             <div class = "row showFinalEstimatedBlock" *ngIf="showGetPrediction">
+                <span>Expected Cost Time In LKR : </span>
+                <strong>{{estimatedCost}}</strong>
+             </div>
 
         </div>
     </div>

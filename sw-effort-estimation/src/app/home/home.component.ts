@@ -14,39 +14,73 @@ export class HomeComponent implements OnInit {
   })
 
   costDriversForm:FormGroup = new FormGroup({
-    teamSalary:new FormControl(null,Validators.required),
-    nonTechSalary:new FormControl(null),
-    Equipment:new FormControl(null),
-    depreciation:new FormControl(null),
-    rent:new FormControl(null),
-    travelling:new FormControl(null),
-    utilityBills:new FormControl(null),
-    coppyright:new FormControl(null),
-    softwarePurchase:new FormControl(null),
-    repairAndMaintenance:new FormControl(null),
-    Sanitary:new FormControl(null),
-    Marketing:new FormControl(null),
-    Other:new FormControl(null)
+    teamSalary:new FormControl(560679,Validators.required),
+    nonTechSalary:new FormControl(183451),
+    Equipment:new FormControl(34821),
+    depreciation:new FormControl(8736),
+    rent:new FormControl(14634),
+    travelling:new FormControl(38279),
+    furniture:new FormControl(2356),
+    utilityBills:new FormControl(27541),
+    coppyright:new FormControl(15239),
+    softwarePurchase:new FormControl(12781),
+    repairAndMaintenance:new FormControl(8393),
+    Sanitary:new FormControl(5782),
+    Marketing:new FormControl(4782),
+    Other:new FormControl(247990)
   })
 
 
   constructor(private _pythonService:PythonService) { }
 
+  estimatedTime:any
+  showEstimatedTime: boolean
+  estimatedCostFactor:any
+  showEstimatedCostFactor: boolean
+  estimatedCost:any
+  showGetPrediction:boolean
+
+
   ngOnInit(): void {
+    this.showEstimatedTime = false;
+    this.showEstimatedCostFactor = false;
+    this.showGetPrediction = false;
   }
 
   onStoryPointClick(){
+    console.log(this.storyPointForm.value)
     this._pythonService.getTimeEstimation(JSON.stringify(this.storyPointForm.value))
     .subscribe(
-      data=>console.log(data),
+      res=>{
+        this.showEstimatedTime = true;
+        this.estimatedTime = res;
+        console.log(res)
+      },
       error=>{console.log(error)}
     )
   }
 
   onCostClick(){
+    console.log(this.costDriversForm.value)
     this._pythonService.getCostEstimation(JSON.stringify(this.costDriversForm.value))
     .subscribe(
-      data=>console.log(data),
+      res=>{
+        this.showEstimatedCostFactor = true;
+        this.estimatedCostFactor = res;
+        console.log(res)
+      },
+      error=>{console.log(error)}
+    )
+  }
+  
+  onPredictionClick(){
+    this._pythonService.getPrediction(this.estimatedTime,this.estimatedCostFactor,this.costDriversForm.value.teamSalary)
+    .subscribe(
+      res=>{
+        this.showGetPrediction = true;
+        this.estimatedCost = res;
+        console.log(res)
+      },
       error=>{console.log(error)}
     )
   }
