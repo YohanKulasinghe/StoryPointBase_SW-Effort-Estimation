@@ -53,11 +53,17 @@ def set_cost_drivers():
         costs.append(req[i])
 
     team_salary = costs[0]
-    cost_driver = 0 
-    for i in costs:
-        cost_driver = cost_driver + (i/team_salary)
+    cost_type = costs[1]
+    print(costs[0])
 
-    return jsonify(round(cost_driver, 2))
+    if(cost_type == "default"):
+        return jsonify(1.68)
+    else:
+        cost_driver = 0 
+        for i in costs:
+            cost_driver = cost_driver + (int(i)/int(team_salary))
+
+        return jsonify(round(cost_driver, 2))
 
 @app.route('/getPrediction', methods=['POST'])
 def get_prediction():
@@ -68,7 +74,7 @@ def get_prediction():
     cost_driver = req['costDriver']
     team_salary = req['teamSalary']
 
-    estimated_cost = estimated_time*cost_driver*team_salary
+    estimated_cost = estimated_time / 22 *int(team_salary)*int(cost_driver)
 
     return jsonify(round(estimated_cost,2))
 
