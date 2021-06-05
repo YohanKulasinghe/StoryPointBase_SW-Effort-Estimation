@@ -36,7 +36,7 @@ def set_storypoint():
 
     y = y.ravel()
     from sklearn.svm import SVR
-    r=SVR(kernel="rbf")
+    r=SVR(kernel="rbf", C = 0.78121, tol = 0.05)
     r.fit(x,y)
 
     estimated_time = sc_y.inverse_transform(r.predict(sc.transform([[total_story_point]])))
@@ -55,6 +55,8 @@ def set_cost_drivers():
     team_salary = costs[0]
     cost_type = costs[1]
     print(costs[0])
+
+    del costs[1]
 
     if(cost_type == "default"):
         return jsonify(1.68)

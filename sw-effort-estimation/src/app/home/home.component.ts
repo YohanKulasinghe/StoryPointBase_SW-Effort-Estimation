@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { PythonService } from '../python.service';
 
@@ -34,7 +35,8 @@ export class HomeComponent implements OnInit {
   })
 
 
-  constructor(private _pythonService:PythonService) { }
+  constructor(private _pythonService:PythonService,
+    @Inject(DOCUMENT) private _document: Document) { }
 
   estimatedTime:any;
   showEstimatedTime:boolean;
@@ -107,6 +109,6 @@ export class HomeComponent implements OnInit {
   }
 
   resetClick(){
-    
+    this._document.defaultView.location.reload();
   }
 }
